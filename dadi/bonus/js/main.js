@@ -25,14 +25,17 @@ divResultPc.classList.add('result-container');
 
 clickUser.addEventListener('click',
     function(){
+
         // generiamo un numero random per User
         numUser = Math.floor((Math.random() * 6) + 1)
-        divResultUser.append(numUser);
+        //divResultUser.append(numUser);
+        divResultUser.innerHTML = numUser;
         containerUser.append(divResultUser);
 
         // generiamo un numero random per Pc
         numPc = Math.floor((Math.random() * 6) + 1)
-        divResultPc.append(numPc);
+        //divResultPc.append(numPc);
+        divResultPc.innerHTML = numPc;
         containerPc.append(divResultPc);
 
         // confrontiamo in 2 numeri e verifichiamo chi vince
