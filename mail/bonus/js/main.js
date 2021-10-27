@@ -10,7 +10,11 @@ const listMailArray = ['mail@gmail.com','mailprova@gmail.com','mailexample@gmail
 const ulDivList = document.getElementById('listmail');
 const submitBtn = document.getElementById('submit');
 let mailInput = document.getElementById('input-email');
+let mailSearch = document.getElementById('searchmail');
+const searchBtn = document.getElementById('search');
+const result = document.getElementById('result');
 let input = null;
+let mailVerified = false;
 
 // stampiamo l'array nell'ul
 for( i=0; i<listMailArray.length; i++){
@@ -26,7 +30,7 @@ submitBtn.addEventListener('click',
         input = mailInput.value;
         console.log(input);
         listMailArray.push(input);
-        console.log(listMailArray);
+        //console.log(listMailArray);
 
         //dobbiamo aggiungere la mail dal form email nella lista
         let liItem = document.createElement('li');
@@ -36,21 +40,26 @@ submitBtn.addEventListener('click',
     }
 );
 
-
+//let mail = "";
 // chiediamo all'utente la propria mail e la salviamo - aggiungiamo una variabile di stato mail non trovata per stampare messaggio negativo alla fine 
 //let mailUser = prompt("Inserisci qui la tua mail per l'accesso: ")
-let mailVerified = false;
+searchBtn.addEventListener('click',
+    function(){
+        //mail = mailSearch.value;
+        // cicliamo la mail del cliente nella lista e stampiamo un msg di buon esito se c'è.
+        
+        for (i=0; i<listMailArray.length; i++){
+            if (listMailArray[i] === mailSearch.value){
+                mailVerified = true;
+            }
+        }
 
-// cicliamo la mail del cliente nella lista e stampiamo un msg di buon esito se c'è.
-// for (i=0; i<listMailArray.length; i++){
-//     if (listMailArray[i] === mailUser){
-//         mailVerified = true;
-//         console.log('La tua mail risulta in lista, complimenti!');
-//     }
-// }
+        //result.classList.add('active');
+        //se la mail non è stata trovata nel ciclo precedente stampiamo msg negativo
+        if (mailVerified === false){
+            result.innerHTML = 'Spiacente la tua mail non è presente in lista!';
+        } else result.innerHTML = 'La tua mail risulta in lista, complimenti!';
 
-//se la mail non è stata trovata nel ciclo precedente stampiamo msg negativo
-// if (mailVerified === false){
-//     console.log('Spiacente la tua mail non è presente in lista!');
-// }
+    }    
+);    
 

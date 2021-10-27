@@ -13,7 +13,7 @@ h1{
     font-weight: bolder;
 }
 
-#searchmail{
+#result{
     display: block;
     width: 100%;
     padding: .375rem .75rem;
@@ -29,3 +29,6 @@ h1{
 #listmail{
     text-align: left;
 }
+/* .active{
+    display: block;
+} */
