@@ -6,10 +6,9 @@ Prima di partire a scrivere codice poniamoci qualche domanda: Che ci sia un arra
 
 // restiamo in attesa di un click per generare un numero utente
 const clickUser = document.getElementById('user-btn');
-
-
 const containerUser = document.getElementById('user');
 const containerPc = document.getElementById('computer');
+const containerWinner = document.getElementById('result');
 
 let numUser, numPc;
 
@@ -22,6 +21,9 @@ divResultUser.classList.add('result-container');
 
 const divResultPc = document.createElement('div');
 divResultPc.classList.add('result-container');
+
+const divWinner = document.createElement('div');
+divWinner.classList.add('result-container');
 
 clickUser.addEventListener('click',
     function(){
@@ -40,11 +42,14 @@ clickUser.addEventListener('click',
 
         // confrontiamo in 2 numeri e verifichiamo chi vince
         if (numUser === numPc){
-            console.log('Nessun vincitore! Siete pari!')
+            divWinner.innerHTML = 'Nessun vincitore! Siete pari!';
+            containerWinner.append(divWinner);
         } else if (numUser >= numPc){
-            console.log('Complimenti hai vinto!')
+            divWinner.innerHTML = 'Complimenti hai vinto!';
+            containerWinner.append(divWinner);
         }else if (numUser <= numPc){
-            console.log('Mi dispiace hai perso! Ritenta')
+            divWinner.innerHTML = 'Mi dispiace hai perso! Ritenta';
+            containerWinner.append(divWinner);
         }
 
     }
